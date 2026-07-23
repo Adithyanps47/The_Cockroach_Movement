@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cockroach Movement — India's Youth Against a Broken Education System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #16241C;
+    --bg-panel: #1E3226;
+    --bg-panel-2: #223729;
+    --chalk: #EDE8DB;
+    --chalk-dim: #A9B7A6;
+    --rule: rgba(237,232,219,0.09);
+    --red: #C1442D;
+    --red-soft: rgba(193,68,45,0.14);
+    --yellow: #D9B54A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--chalk);
+    font-family:'Lora', serif;
+    line-height:1.75;
+    font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--red); color:var(--chalk); }
+
+  .wrap{ max-width:700px; margin:0 auto; padding:0 24px; }
+
+  /* HERO */
+  header.hero{
+    position:relative;
+    padding:96px 24px 64px;
+    background:
+      repeating-linear-gradient(var(--bg) 0 27px, var(--rule) 27px 28px),
+      var(--bg);
+    border-bottom:1px solid var(--rule);
+    overflow:hidden;
+  }
+  header.hero::before{
+    content:"ROLL NO. 2026 / DELHI";
+    position:absolute; top:28px; left:24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.14em;
+    color:var(--chalk-dim);
+  }
+  header.hero::after{
+    content:"SUBJECT: DEMOCRACY";
+    position:absolute; top:28px; right:24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.14em;
+    color:var(--chalk-dim);
+  }
+  .stamp{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.12em;
+    color:var(--red);
+    border:2px solid var(--red);
+    padding:5px 14px;
+    border-radius:3px;
+    transform:rotate(-3deg);
+    margin-bottom:28px;
+  }
+  h1.title{
+    font-family:'Zilla Slab', serif;
+    font-weight:700;
+    font-size:clamp(2.4rem, 7vw, 3.6rem);
+    line-height:1.05;
+    margin:0 0 14px;
+    max-width:11ch;
+  }
+  h1.title .accent{ color:var(--red); }
+  .subtitle{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--chalk-dim);
+    margin:0 0 36px;
+    max-width:38ch;
+  }
+  .byline{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--chalk-dim);
+    border-top:1px dashed var(--rule);
+    padding-top:16px;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .byline strong{ color:var(--chalk); font-weight:600; }
+
+  /* SECTIONS */
+  main{ padding:8px 0 40px; }
+  section{ padding:44px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+
+  .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.16em;
+    color:var(--yellow);
+    text-transform:uppercase;
+    margin:0 0 10px;
+  }
+  h2{
+    font-family:'Zilla Slab', serif;
+    font-weight:600;
+    font-size:1.7rem;
+    margin:0 0 20px;
+    color:var(--chalk);
+  }
+  p{ margin:0 0 20px; color:var(--chalk); }
+  p.lede{
+    font-size:1.15rem;
+    color:var(--chalk);
+  }
+  strong{ color:var(--yellow); font-weight:600; }
+
+  /* verified fact callout */
+  .marked{
+    position:relative;
+    padding-left:18px;
+    border-left:2px solid var(--red);
+  }
+  .marked p{ margin-bottom:16px; }
+
+  /* legal circular box */
+  .circular{
+    background:var(--bg-panel);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:26px 26px 22px;
+    margin:28px 0;
+  }
+  .circular .kicker{ color:var(--red); }
+  .circular p:last-child{ margin-bottom:0; }
+
+  /* report card */
+  .report-card{
+    background:var(--bg-panel-2);
+    border-radius:4px;
+    padding:24px 26px;
+    margin:24px 0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+  }
+  .rc-row{
+    display:flex;
+    justify-content:space-between;
+    padding:9px 0;
+    border-bottom:1px dashed var(--rule);
+    gap:16px;
+  }
+  .rc-row:last-child{ border-bottom:none; }
+  .rc-name{ color:var(--chalk-dim); }
+  .rc-status{ color:var(--chalk); text-align:right; }
+  .rc-status.absent{ color:var(--red); font-weight:600; }
+
+  /* timeline */
+  .tl-item{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:18px;
+    margin-bottom:26px;
+  }
+  .tl-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--chalk-dim);
+    padding-top:3px;
+  }
+  .tl-body p{ margin-bottom:8px; }
+
+  /* closing */
+  .closing{
+    font-family:'Zilla Slab', serif;
+    font-size:1.4rem;
+    line-height:1.5;
+    color:var(--chalk);
+  }
+  .closing .accent{ color:var(--yellow); }
+
+  footer{
+    padding:40px 0 80px;
+  }
+  footer .kicker{ color:var(--chalk-dim); }
+  footer p{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    line-height:1.9;
+    color:var(--chalk-dim);
+  }
+
+  @media (max-width:520px){
+    body{ font-size:16.5px; }
+    header.hero{ padding:76px 20px 48px; }
+    header.hero::before, header.hero::after{ position:static; display:block; margin-bottom:6px; }
+    header.hero::after{ margin-top:2px; }
+    .tl-item{ grid-template-columns:1fr; }
+    .tl-date{ padding-top:0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+
+  :focus-visible{ outline:2px solid var(--yellow); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap" style="padding:0;">
+    <span class="stamp">SYSTEM RESULT: FAIL</span>
+    <h1 class="title">The <span class="accent">Cockroach</span> Movement</h1>
+    <p class="subtitle">India's youth against a broken education system.</p>
+    <div class="byline">
+      <span>By <strong>Adithyan P S</strong></span>
+      <span>@adithyan_ps._</span>
+      <span>Jantar Mantar, New Delhi &mdash; May&ndash;July 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <p class="lede">In a democracy, questioning the government is not disorder. It is the job of every citizen. That is the idea a generation of young Indians tested this monsoon season at Jantar Mantar, and it is the idea that was met with tear gas, batons, and blood on the streets of the capital.</p>
+  </section>
+
+  <section id="start">
+    <p class="kicker">01 &mdash; Where It Started</p>
+    <h2>An insult, turned into a movement</h2>
+    <p>In May 2026, Chief Justice of India Surya Kant, during an unrelated Supreme Court hearing, described unemployed young people active on social media as "cockroaches" and "parasites of society." Within a day, digital strategist Abhijeet Dipke turned the insult into a movement, launching the "Cockroach Janta Party" (CJP) online as satire. It spread faster than anyone expected, crossing 22 million followers within weeks.</p>
+    <p>The satire found its cause in something no joke could contain: the 2026 NEET medical entrance exam, cancelled after a paper leak affected over 2.2 million students, followed by irregularities in CBSE's board exam marking. These were not isolated failures. Tracking by independent reporting counts at least 8 to 12 major Indian exam and recruitment paper leaks in just the past two years, including a teacher eligibility exam postponed this year after leaked questions were found in a raid. For a generation that spends years and its family's savings preparing for a single exam day, each leak is not an inconvenience. It is a stolen future.</p>
+    <p>On June 6, 2026, CJP and student organizations began gathering at Jantar Mantar, demanding the resignation of Education Minister Dharmendra Pradhan. On June 28, Ladakhi environmentalist Sonam Wangchuk joined and began an indefinite hunger strike, becoming the face of a leaderless generation's anger.</p>
+    <p>This was, from the start, a youth and student movement. It did not begin as a political party's project, and no opposition party joined it in its first weeks. That matters, because what came later is often misremembered as a partisan fight. It was not. It was students and young professionals, alone, asking a government to answer for the system it runs.</p>
+  </section>
+
+  <section id="force">
+    <p class="kicker">02 &mdash; The Fast, and the Force</p>
+    <h2>Twenty days without food, then batons</h2>
+
+    <div class="tl-item">
+      <div class="tl-date">MID-JULY</div>
+      <div class="tl-body"><p>Wangchuk fasted for twenty days. Following a change in Delhi Police leadership, officers removed the site's barricades and forcibly carried him to a hospital. Delhi Police called it medically necessary. Protesters called it the moment the state decided a hunger strike for accountability could simply be ended by force.</p></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">JUL 20</div>
+      <div class="tl-body"><p>CJP called for a march to Parliament: "Chalo Sansad." More than a hundred thousand people are estimated to have gathered. Authorities cut mobile internet in the area, shut metro stations, and lined the streets with barricades and paramilitary forces. When the first barricade line was breached, police responded with lathi charges and tear gas.</p></div>
+    </div>
+
+    <p>What happened next is not a matter of one side's word against another's. It is documented, verified, and in several cases confirmed by the police themselves:</p>
+
+    <div class="marked">
+      <p>Fact-checking outlet Alt News used video metadata and geolocation to confirm that a baton studded with nails was used against protesters on July 20, after Delhi Police and a government fact-check unit initially dismissed the footage as fake or unrelated.</p>
+      <p>Reporters from BOOM, present at the site, documented lathi charges striking women and minors among the crowd, and spoke to protesters with head injuries and torn toenails.</p>
+      <p>Senior Delhi Police officers themselves confirmed, after videos went viral, that men in plainclothes without name badges seen beating protesters were in fact police officers, deliberately deployed without identification.</p>
+      <p>The Hindu reported allegations of pellet guns and shock batons being used, which police denied.</p>
+    </div>
+
+    <p>By the day's end, Delhi Police put the injury count near 180: 118 of their own personnel, 60 protesters. CJP organizers said closer to 150 protesters were hospitalized. Neither figure has independent verification, and no deaths have been confirmed by any credible outlet. But the injuries themselves, the batons, the blood, the young people carried away on stretchers, are not in dispute.</p>
+
+    <div class="tl-item">
+      <div class="tl-date">JUL 21</div>
+      <div class="tl-body"><p>Leader of the Opposition Rahul Gandhi and other MPs were forcibly detained and dragged by officers, again without name badges, during a sit-in outside the Prime Minister's residence. It was only after this point, after Wangchuk's forced hospitalization and after the crackdown on students, that Congress and other opposition parties joined the movement in solidarity. They did not start this fight. They arrived after the young people who did were already bleeding.</p></div>
+    </div>
+  </section>
+
+  <section id="law">
+    <p class="kicker">03 &mdash; What the Law Actually Required</p>
+    <h2>The rulebook the response ignored</h2>
+    <p>India's legal framework does not leave the limits of police force to guesswork. Under the Bharatiya Nagarik Suraksha Sanhita (formerly the Code of Criminal Procedure), an assembly may be ordered to disperse, and force may follow if it does not.</p>
+    <div class="circular">
+      <p class="kicker">Standing Requirement</p>
+      <p>Force must be minimal, escalating only as far as necessary. Lathi strikes must avoid the head. Firearms are reserved only for an immediate, specific threat to life, never fired into a crowd.</p>
+    </div>
+    <p>The Supreme Court itself has already settled the broader principle, years before this protest existed: force is not warranted at all against a peaceful assembly, and it becomes unlawful the moment it continues after a situation is already under control, or crosses into excess. Batons with nails, officers stripped of identification, and pellet guns are not the ordinary tools of "minimum necessary force." They are the tools of a response that overran its own legal limits.</p>
+  </section>
+
+  <section id="accountability">
+    <p class="kicker">04 &mdash; Who Was Supposed to Answer</p>
+    <h2>Attendance record</h2>
+    <p>Delhi Police answers to the Union Ministry of Home Affairs, led by Home Minister Amit Shah. A delegation of Left MPs visited the protest site and publicly demanded he explain the crackdown before Parliament. Opposition leaders, including Congress's Renuka Chowdhury, called for both his resignation and Education Minister Pradhan's.</p>
+
+    <div class="report-card">
+      <div class="rc-row"><span class="rc-name">Education Minister Dharmendra Pradhan</span><span class="rc-status">Spoke publicly, Jul 21&ndash;22</span></div>
+      <div class="rc-row"><span class="rc-name">Home Minister Amit Shah</span><span class="rc-status absent">Absent from record</span></div>
+      <div class="rc-row"><span class="rc-name">Delhi High Court</span><span class="rc-status">Hearing in progress</span></div>
+    </div>
+
+    <p>Pradhan eventually spoke publicly, accusing the opposition of exploiting students for political theater. Home Minister Shah did not. A government that tells its youth to raise hard questions cannot then go silent the moment those questions are raised. That silence is itself an answer, and it is not the one a democracy owes its students.</p>
+  </section>
+
+  <section id="stands">
+    <p class="kicker">05 &mdash; Where This Stands</p>
+    <h2>Still no conclusion</h2>
+    <p>There is no conclusion to write here, because none exists yet. On the night of July 22, fresh clashes broke out near Connaught Place after alleged stone-pelting by a section of the crowd; Delhi Police reported around five personnel injured, including two Assistant Commissioners of Police. Protesters rebuilt their campsite at Jantar Mantar within hours.</p>
+    <p>As of this writing, protesters remain at Jantar Mantar. Wangchuk has offered to end his fast if the government spares the students. The Delhi High Court has begun hearing petitions over the force used. Pradhan has not resigned. Shah has not spoken.</p>
+    <p>What is not in question is what a generation of young Indians did this monsoon season: they gathered peacefully to ask why the exams that decide their futures keep failing them, and why no one in power has had to answer for it. They were met with batons, with tear gas, and with officers who hid their own names while swinging them.</p>
+  </section>
+
+  <section style="border-bottom:none;">
+    <p class="closing">Asking a government hard questions is not disorder. It is the whole point of the country these students were born into. If that right can be beaten out of a generation and <span class="accent">forgotten by next season's news cycle</span>, it will not stay beaten out of only this one.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p class="kicker">Sources</p>
+  <p>Wikipedia ("2026 Delhi Jantar Mantar protests," "Cockroach Janta Party") &middot; NPR &middot; CNN &middot; Al Jazeera &middot; Britannica &middot; Alt News &middot; Newslaundry &middot; BOOM Live &middot; The Print &middot; The Hindu &middot; The Week &middot; Countercurrents &middot; The Statesman &middot; Outlook India &middot; The Federal &middot; India TV News &middot; Organiser &middot; The Tribune &middot; BNSS / CrPC bare-act text &middot; Anita Thakur v. State of J&amp;K, (2016) 15 SCC 525</p>
+</footer>
+
+</body>
+</html>
